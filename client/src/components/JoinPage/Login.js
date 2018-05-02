@@ -12,6 +12,7 @@ export default class Login extends Component {
         password:''
       },
       error:null,
+      errors:null,
       isloggedIn:false
     }
     this.changeHandler = this.changeHandler.bind(this);
@@ -22,8 +23,11 @@ export default class Login extends Component {
     e.preventDefault();
     axios.post("https://craigslistbackend.herokuapp.com/api/login", this.state.data).then((res)=>{
      console.log(res);
+     if (res.data.errors) {
+      return  this.setState({errors:res.data.errors})
+     }
      if (res.data.error) {
-      return  this.setState({error:res.data.message})
+      return  this.setState({error:res.data.message, errors:null})
      }
       return this.setState({isloggedIn:true});
     });
@@ -49,10 +53,14 @@ export default class Login extends Component {
             <div className="form-group">
                         <label htmlFor="email">Email address</label>
                         <input type="email" value={this.state.data.email} name="email" onChange={changeHandler} className="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email"/>
+                        {this.state.errors && this.state.errors.email && <p className='text-danger' >{this.state.errors.email.msg}</p>  }
+
             </div>
             <div className="form-group">
                         <label htmlFor="password">Password</label>
                         <input onChange={changeHandler} value={this.state.data.password} name="password" type="password" className="form-control" id="password" placeholder="Password"/>
+                        {this.state.errors && this.state.errors.password && <p className='text-danger' >{this.state.errors.password.msg}</p>  }
+                        
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>
 </form>
