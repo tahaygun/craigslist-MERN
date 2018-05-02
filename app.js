@@ -24,7 +24,7 @@ app.use(session({
 }))
 
 app.use(cors({ //tis adds session to req, like so: req.session
-  origin: ['http://localhost:3000'],
+  origin: ['http://localhost:3000', 'https://craigslistbackend.herokuapp.com/'],
   methods: ['GET', 'HEAD','POST', 'DELETE', 'PUT', 'PATCH', 'OPTIONS'],
   credentials: true//allow setting of cookies
 }));

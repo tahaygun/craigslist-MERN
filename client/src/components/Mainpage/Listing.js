@@ -9,13 +9,13 @@ class Listing extends Component {
             user:null
         }
 
-        axios.get('https://infinite-sea-90747.herokuapp.com/api/current_user')
+        axios.get('https://craigslistbackend.herokuapp.com/api/current_user')
         .then((user)=>{this.setState({user:user.data})})
         this.deleteHandler = this.deleteHandler.bind(this);
     }
     
     deleteHandler(e){
-        axios.delete('https://infinite-sea-90747.herokuapp.com/api/postdelete/'+this.props.listing._id)
+        axios.delete('https://craigslistbackend.herokuapp.com/api/postdelete/'+this.props.listing._id)
         .then((res)=>{
             this.props.pageRefresh();
         })

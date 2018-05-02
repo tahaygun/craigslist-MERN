@@ -10,14 +10,14 @@ class Main extends Component {
             listings:null,
             isLoggedIn:true            
         }
-         axios.get('https://infinite-sea-90747.herokuapp.com/api/isloggedin')
+         axios.get('https://craigslistbackend.herokuapp.com/api/isloggedin')
           .then((user)=>{this.setState({isLoggedIn:user.data})})
         this.getPostings = this.getPostings.bind(this);
     this.logoutHandler = this.logoutHandler.bind(this);     
     this.pageRefresh = this.pageRefresh.bind(this);   
     }
     getPostings(){
-        axios.get('https://infinite-sea-90747.herokuapp.com/api/showlistings')
+        axios.get('https://craigslistbackend.herokuapp.com/api/showlistings')
         .then((listings)=>{
             this.setState({listings:listings.data})
         })
@@ -27,7 +27,7 @@ class Main extends Component {
         this.getPostings();
     }
     logoutHandler(){
-        axios.get('https://infinite-sea-90747.herokuapp.com/api/logout')
+        axios.get('https://craigslistbackend.herokuapp.com/api/logout')
         .then((answer)=>{this.setState({isLoggedIn:false})})
       }
       pageRefresh(){
