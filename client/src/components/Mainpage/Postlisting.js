@@ -17,7 +17,7 @@ class Postlisting extends Component {
         }
         this.changeHandler = this.changeHandler.bind(this);
         this.submitHandler = this.submitHandler.bind(this);
-        axios.get('http://localhost:8000/api/isloggedin')
+        axios.get('https://infinite-sea-90747.herokuapp.com/api/isloggedin')
         .then((user)=>{this.setState({isLoggedIn:user.data})})
     }
     
@@ -28,7 +28,7 @@ class Postlisting extends Component {
     }
     submitHandler(e){
         e.preventDefault();
-        axios.post('http://localhost:8000/api/postlisting',this.state.formData)
+        axios.post('https://infinite-sea-90747.herokuapp.com/api/postlisting',this.state.formData)
         .then((res)=>{
             if(res.data.success){
               return  this.props.history.push('/mainpage');

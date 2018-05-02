@@ -8,9 +8,9 @@ class Showlisting extends Component {
             data:null,
             isLoggedIn:true
         }
-        axios.get(`http://localhost:8000/api/showOne/${this.props.match.params.listingId}`)
+        axios.get(`https://infinite-sea-90747.herokuapp.com/api/showOne/${this.props.match.params.listingId}`)
         .then((data)=>{this.setState({data:data.data})});
-        axios.get('http://localhost:8000/api/isloggedin')
+        axios.get('https://infinite-sea-90747.herokuapp.com/api/isloggedin')
         .then((user)=>{this.setState({isLoggedIn:user.data})})
     }
     

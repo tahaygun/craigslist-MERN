@@ -8,7 +8,7 @@ const controller = require('./controller/controller');
 
 var http = require("http");
 setInterval(function() {
-    http.get("http://morning-temple-23328.herokuapp.com");
+    http.get("https://infinite-sea-90747.herokuapp.com");
     console.log('okay');
 }, 300000);
 

@@ -18,7 +18,7 @@ export default class Register extends Component {
   
   submitHandler(e){
     e.preventDefault();
-    axios.post("http://localhost:8000/api/register", this.state.data).then((res)=>{
+    axios.post("https://infinite-sea-90747.herokuapp.com/api/register", this.state.data).then((res)=>{
       if(res.data.errors){
         console.log(res.data.errors);
        return this.setState({errors:res.data.errors})
