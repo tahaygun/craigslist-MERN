@@ -6,6 +6,12 @@ const session= require('express-session');
 const app = express();
 const controller = require('./controller/controller');
 
+var http = require("http");
+setInterval(function() {
+    http.get("http://morning-temple-23328.herokuapp.com");
+    console.log('okay');
+}, 300000);
+
 app.use(bodyparser.json());
 
 mongoose.connect("mongodb://root:root@ds155299.mlab.com:55299/loginreg");
