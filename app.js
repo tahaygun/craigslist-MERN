@@ -32,4 +32,4 @@ app.use(cors({ //tis adds session to req, like so: req.session
 controller(app);
 
 
-app.listen(8000, ()=>{console.log('Listening...')})
+app.listen( process.env.PORT || 8000, ()=>{console.log('Listening...')})
