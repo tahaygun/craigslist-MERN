@@ -14,7 +14,7 @@ setInterval(function() {
 
 app.use(bodyparser.json());
 
-mongoose.connect("mongodb://root:root@ds155299.mlab.com:55299/loginreg");
+mongoose.connect(//YOUR DATABASE CONNECTION);
 app.use(session({
   secret: 'supersecretstring12345!',
   saveUninitialized: true,
